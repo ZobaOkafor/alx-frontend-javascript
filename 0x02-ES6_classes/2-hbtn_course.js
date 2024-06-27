@@ -1,55 +1,48 @@
 export default class HolbertonCourse {
-  constructor(name, length, students) {
-    this._name = this.validateString(name, 'Name');
-    this._length = this.validateNumber(length, 'Length');
-    this._students = this.validateArray(students, 'Students');
-  }
-
-  // Validators
-  validateString(value, attributeName) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`${attributeName} must be a string`);
+    constructor(name, length, students) {
+      if (typeof name !== 'string') {
+        throw new TypeError('Name must be a string');
+      } else if (typeof length !== 'number') {
+        throw new TypeError('Length must be a number');
+      } else if (!Array.isArray(students)) {
+        throw new TypeError('Students must be an array of strings');
+      }
+  
+      this._name = name;
+      this._length = length;
+      this._students = students;
     }
-    return value;
-  }
-
-  validateNumber(value, attributeName) {
-    if (typeof value !== 'number') {
-      throw new TypeError(`${attributeName} must be a number`);
+  
+    get name() {
+      return this._name;
     }
-    return value;
-  }
-
-  validateArray(value, attributeName) {
-    if (!Array.isArray(value) || !value.every(item => typeof item === 'string')) {
-      throw new TypeError(`${attributeName} must be an array of strings`);
+  
+    get length() {
+      return this._length;
     }
-    return value;
+  
+    get students() {
+      return this._students;
+    }
+  
+    set name(name) {
+      if (typeof name !== 'string') {
+        throw new TypeError('Name must be a string');
+      }
+      this._name = name;
+    }
+  
+    set length(length) {
+      if (typeof length !== 'number') {
+        throw new TypeError('Length must be a number');
+      }
+      this._length = length;
+    }
+  
+    set students(students) {
+      if (!Array.isArray(students)) {
+        throw new TypeError('Students must be an array of strings');
+      }
+      this._students = students;
+    }
   }
-
-  // Getters
-  get name() {
-    return this._name;
-  }
-
-  get length() {
-    return this._length;
-  }
-
-  get students() {
-    return this._students;
-  }
-
-  // Setters
-  set name(value) {
-    this._name = this.validateString(value, 'Name');
-  }
-
-  set length(value) {
-    this._length = this.validateNumber(value, 'Length');
-  }
-
-  set students(value) {
-    this._students = this.validateArray(value, 'Students');
-  }
-}
