@@ -1,13 +1,13 @@
-import Building from './5-building.js';
+import Building from './5-building';
 
 export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
     super(sqft);
-    this._floors = this.validateNumber(floors, 'Floors');
+    this._floors = SkyHighBuilding.validateNumber(floors, 'Floors');
   }
 
   // Validator
-  validateNumber(value, attributeName) {
+  static validateNumber(value, attributeName) {
     if (typeof value !== 'number') {
       throw new TypeError(`${attributeName} must be a number`);
     }
