@@ -14,8 +14,6 @@ export class HolbertonClass {
 }
 
 
-import { HolbertonClass } from "./9-hoisting.js";
-
 export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
     this._firstName = firstName;
