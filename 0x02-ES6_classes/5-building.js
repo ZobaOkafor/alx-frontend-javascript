@@ -3,11 +3,11 @@ export default class Building {
     if (this.constructor !== Building && this.evacuationWarningMessage === undefined) {
       throw new Error('Class extending Building must override evacuationWarningMessage');
     }
-    this._sqft = this.validateNumber(sqft, 'Square feet');
+    this._sqft = Building.validateNumber(sqft, 'Square feet');
   }
 
   // Validator
-  validateNumber(value, attributeName) {
+  static validateNumber(value, attributeName) {
     if (typeof value !== 'number') {
       throw new TypeError(`${attributeName} must be a number`);
     }
