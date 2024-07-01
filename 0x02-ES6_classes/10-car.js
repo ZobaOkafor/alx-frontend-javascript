@@ -17,4 +17,17 @@ export default class Car {
   cloneCar() {
     return this[cloneSymbol]();
   }
+
+  // Getter methods (optional, but good practice)
+  get brand() {
+    return this._brand;
+  }
+
+  get motor() {
+    return this._motor;
+  }
+
+  get color() {
+    return this._color;
+  }
 }
