@@ -7,14 +7,14 @@ export default class Pricing {
   }
 
   // Validators
-  validateNumber(value, attributeName) {
+  static validateNumber(value, attributeName) {
     if (typeof value !== 'number') {
       throw new TypeError(`${attributeName} must be a number`);
     }
     return value;
   }
 
-  validateCurrency(value, attributeName) {
+  static validateCurrency(value, attributeName) {
     if (!(value instanceof Currency)) {
       throw new TypeError(`${attributeName} must be an instance of Currency`);
     }
