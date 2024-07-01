@@ -1,11 +1,11 @@
 export default class HolbertonClass {
   constructor(size, location) {
-    this._size = this.validateNumber(size, 'Size');
-    this._location = this.validateString(location, 'Location');
+    this._size = HolbertonClass.validateNumber(size, 'Size');
+    this._location = HolbertonClass.validateString(location, 'Location');
   }
 
   // Validator for numbers
-  validateNumber(value, attributeName) {
+  static validateNumber(value, attributeName) {
     if (typeof value !== 'number') {
       throw new TypeError(`${attributeName} must be a number`);
     }
@@ -13,7 +13,7 @@ export default class HolbertonClass {
   }
 
   // Validator for strings
-  validateString(value, attributeName) {
+  static validateString(value, attributeName) {
     if (typeof value !== 'string') {
       throw new TypeError(`${attributeName} must be a string`);
     }
