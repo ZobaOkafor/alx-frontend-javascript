@@ -2,8 +2,8 @@ import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
-    this._amount = this.validateNumber(amount, 'Amount');
-    this._currency = this.validateCurrency(currency, 'Currency');
+    this._amount = Pricing.validateNumber(amount, 'Amount');
+    this._currency = Pricing.validateCurrency(currency, 'Currency');
   }
 
   // Validators
@@ -32,11 +32,11 @@ export default class Pricing {
 
   // Setters
   set amount(value) {
-    this._amount = this.validateNumber(value, 'Amount');
+    this._amount = Pricing.validateNumber(value, 'Amount');
   }
 
   set currency(value) {
-    this._currency = this.validateCurrency(value, 'Currency');
+    this._currency = Pricing.validateCurrency(value, 'Currency');
   }
 
   // Method to display full price
