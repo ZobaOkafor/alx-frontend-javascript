@@ -5,5 +5,8 @@
  * @returns {Array} Array of students in the specified city.
  */
 export default function getStudentsByLocation(students, city) {
-  return students.filter(student => student.location === city);
+  if (Object.getPrototyprOf(students) === Array.prototype) {
+    return students.filter(student => student.location === city);
+  }
+  return [];
 }
