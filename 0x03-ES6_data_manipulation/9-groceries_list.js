@@ -3,13 +3,13 @@
  * @returns {Map} A Map containing groceries with items as keys and quantities as values.
  */
 export default function groceriesList() {
-  const groceries = new Map();
+  const grocery = new Map();
 
-  groceries.set('Apples', 10);
-  groceries.set('Tomatoes', 10);
-  groceries.set('Pasta', 1);
-  groceries.set('Rice', 1);
-  groceries.set('Banana', 5);
+  grocery.set('Apples', 10);
+  grocery.set('Tomatoes', 10);
+  grocery.set('Pasta', 1);
+  grocery.set('Rice', 1);
+  grocery.set('Banana', 5);
 
-  return groceries;
+  return grocery;
 }
