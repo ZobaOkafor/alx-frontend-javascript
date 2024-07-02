@@ -4,5 +4,6 @@
  * @returns {Set} A new Set containing the elements of the array.
  */
 export default function setFromArray(array) {
-  return new Set(array);
+  const myset = new Set(array);
+  return myset;
 }
