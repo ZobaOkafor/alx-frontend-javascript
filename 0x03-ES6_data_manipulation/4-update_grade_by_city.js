@@ -6,14 +6,15 @@
  * @returns {Array} Array of students with updated grades.
  */
 export default function updateStudentGradeByCity(students, city, newGrades) {
-  return students.reduce((acc, student) => {
-    if (student.location === city) {
-      const gradeRecord = newGrades.find(grade => grade.studentId === student.id);
-      acc.push({
-        ...student,
-        grade: gradeRecord ? gradeRecord.grade : 'N/A'
-      });
-    }
-    return acc;
-  }, []);
+  // check arg is an array
+  if (Object.getPrototypeOf(students) !== Array.prototype) {
+    return [];
+  }
+  if (Object.getPrototypeOf(newGrades) !== Array.prototype) {
+    return [];
+  }
+  return students.filter((student) => student.location === city).map((student) => {
+    const [newGrade] = newGrades.filter((item) => item.studentId === student.id);
+    return { ...student, grade: newGrade ? newGrade.grade : 'N/A' };
+  });
 }
