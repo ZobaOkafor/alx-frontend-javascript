@@ -5,5 +5,5 @@
  * @returns {boolean} True if all elements in the array exist in the set, false otherwise.
  */
 export default function hasValuesFromArray(set, array) {
-  return array.every(element => set.has(element));
+  return array.every((element) => set.has(element));
 }
