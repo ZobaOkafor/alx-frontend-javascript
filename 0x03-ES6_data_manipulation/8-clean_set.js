@@ -5,12 +5,16 @@
  * @returns {string} A string of values from the set that start with startString, separated by '-'.
  */
 export default function cleanSet(set, startString) {
-  if (!startString || !startString.length) return '';
-  let values = '';
-  for (const i of set) {
-    if (i && i.startsWith(startString)) {
-      values += values.length === 0 ? i.replace(startString, '') : i.replace(startString, '-');
+  let String = '';
+  const strArray = [];
+
+  if (startString && typeof startString === 'string') {
+    for (const str of set) {
+      if (str && str.startsWith(startString)) {
+        strArray.push(str.slice(startString.length));
+      }
     }
+    String = strArray.join('-');
   }
-  return values;
+  return String;
 }
